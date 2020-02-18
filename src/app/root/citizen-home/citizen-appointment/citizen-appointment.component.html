@@ -4,12 +4,9 @@
   </div>
   <div class="content">
     <div class="appointment-container mat-elevation-z8">
-
-      <dx-tree-list [dataSource]="dataSource" height='100%' keyExpr="id" [rowAlternationEnabled]="true"
+      <dx-tree-list [dataSource]="dataSource | async" height='100%' keyExpr="id" [rowAlternationEnabled]="true"
         [hoverStateEnabled]="true" [columnAutoWidth]="true" [wordWrapEnabled]="true" [showBorders]="true">
-
         <dxo-header-filter [visible]="true"></dxo-header-filter>
-
         <dxi-column [width]="'100px'" dataField="weekday"></dxi-column>
         <dxi-column [width]="'100px'" dataField="date"></dxi-column>
         <dxi-column [width]="'100px'" dataField="time"></dxi-column>
@@ -24,7 +21,6 @@
           </dxi-button>
         </dxi-column>
       </dx-tree-list>
-      
     </div>
   </div>
 </div>

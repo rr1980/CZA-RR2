@@ -9,7 +9,7 @@ import { CitizenAppointmentComponent } from './citizen-appointment/citizen-appoi
 import { CitizenPrivacyPolicyComponent } from './citizen-privacy-policy/citizen-privacy-policy.component';
 import { CitizenPersonalDetailsComponent } from './citizen-personal-details/citizen-personal-details.component';
 import { CitizenCompleteBookingComponent } from './citizen-complete-booking/citizen-complete-booking.component';
-import { CitizenConfirmationComponent } from './citizen-confirmation/citizen-confirmation.component';
+// import { CitizenConfirmationComponent } from './citizen-confirmation/citizen-confirmation.component';
 import { CitizenRouteGuard } from './citizen-route.guard';
 
 const routes: Routes = [
@@ -23,7 +23,7 @@ const routes: Routes = [
       { path: 'privacypolicy', component: CitizenPrivacyPolicyComponent, canActivate: [CitizenRouteGuard] },
       { path: 'personaldetails', component: CitizenPersonalDetailsComponent, canActivate: [CitizenRouteGuard] },
       { path: 'completebooking', component: CitizenCompleteBookingComponent, canActivate: [CitizenRouteGuard] },
-      { path: 'confirmation', component: CitizenConfirmationComponent, canActivate: [CitizenRouteGuard] },
+      // { path: 'confirmation', component: CitizenConfirmationComponent, canActivate: [CitizenRouteGuard] },
       { path: '**', redirectTo: '' }
     ]
   },
@@ -46,5 +46,5 @@ export const routedComponents = [
   CitizenPrivacyPolicyComponent,
   CitizenPersonalDetailsComponent,
   CitizenCompleteBookingComponent,
-  CitizenConfirmationComponent
+  // CitizenConfirmationComponent
 ];

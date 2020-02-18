@@ -1,44 +1,41 @@
-import { Component, OnInit, ViewChild } from '@angular/core';
+import { Component, ViewChild } from '@angular/core';
 import { Router } from '@angular/router';
 import { CitizenService } from '../citizen.service';
 import { DxFormComponent } from 'devextreme-angular/ui/form';
+import { IAppointmentData } from 'src/app/models/appointment.model';
+import { Observable } from 'rxjs';
 
 @Component({
   selector: 'app-citizen-privacy-policy',
   templateUrl: './citizen-privacy-policy.component.html',
   styleUrls: ['./citizen-privacy-policy.component.scss']
 })
-export class CitizenPrivacyPolicyComponent implements OnInit {
+export class CitizenPrivacyPolicyComponent {
 
   @ViewChild("privacyForm", { static: false }) privacyForm: DxFormComponent;
 
-  public privacyFormData:  {
-    privacyAccept: false
-  };
-
-  privacy = '';
-
-  constructor(public cs: CitizenService, private router: Router) { 
-    this.onNext = this.onNext.bind(this);
-    this.onBack = this.onBack.bind(this);
-    
-    cs.datenschutzErklaerung.subscribe(data=>{
-      this.privacy = data;
-    })
+  public get appointmentData(): Observable<IAppointmentData> {
+    return this.cs.get_appointmentData;
   }
 
-  ngOnInit() {
+  public get privacy(): Observable<string> {
+    return this.cs.datenschutzErklaerung;
+  }
+
+  constructor(public cs: CitizenService, private router: Router) {
+    this.onNext = this.onNext.bind(this);
+    this.onBack = this.onBack.bind(this);
   }
 
   onNext() {
     var validationResult = this.privacyForm.instance.validate();
     if (validationResult.isValid) {
-      this.cs.setDatenschutz(true);
+      this.cs.nav(['personaldetails']);
     }
   }
 
   onBack() {
-    this.router.navigate(['appointment'], { state: { back: true } }); 
+    this.router.navigate(['appointment'], { state: { back: true } });
   }
 }
 

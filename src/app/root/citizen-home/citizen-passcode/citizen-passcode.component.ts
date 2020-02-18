@@ -1,8 +1,9 @@
-import { Component, OnInit, ViewChild } from '@angular/core';
+import { Component, ViewChild } from '@angular/core';
 import { LanguageService } from 'src/app/service/language/language.service';
 import { CitizenService } from '../citizen.service';
 import { DxFormComponent } from 'devextreme-angular/ui/form';
-import { Passcode } from 'src/app/models/passcode.model';
+import { IAppointmentData } from 'src/app/models/appointment.model';
+import { Observable } from 'rxjs';
 
 @Component({
   selector: 'app-citizen-passcode',
@@ -10,37 +11,29 @@ import { Passcode } from 'src/app/models/passcode.model';
   styleUrls: ['./citizen-passcode.component.scss']
 })
 
-export class CitizenPasscodeComponent implements OnInit {
+export class CitizenPasscodeComponent {
 
   @ViewChild("passcodeForm", { static: false }) passcodeForm: DxFormComponent;
-  
-  public passcodeFormData: Passcode = {
-    passcode: 'aaaaaaaaaaaa',
-    birthday: new Date()
-  } as Passcode;
+
+  public get appointmentData(): Observable<IAppointmentData> {
+    return this.cs.get_appointmentData;
+  }
 
   buttonOptions = {
     text: "Absenden",
     useSubmitBehavior: true,
-}
+  }
 
   constructor(public ls: LanguageService, private cs: CitizenService) {
     this.onSubmit = this.onSubmit.bind(this);
-   }
-
-  ngOnInit() {
   }
 
-  onSubmit(){
+  onSubmit() {
     var validationResult = this.passcodeForm.instance.validate();
     if (validationResult.isValid) {
-      this.cs.setPasscode(this.passcodeFormData); 
+      this.cs.nav(['appointment']);
     }
   }
-
-  // async submitHandler() {
-  //    this.cs.setPasscode(this.passcode); 
-  // }
 
   // public modelChange(str: string): void {
   //   if (str != null) {

@@ -4,7 +4,7 @@
       <div class="header">
         <h1>{{'Contact data' | translate}}</h1>
       </div>
-      <dx-form id="personalDetailsForm" #personalDetailsForm [formData]="personalDetailsFormData">
+      <dx-form id="personalDetailsForm" #personalDetailsForm [formData]="appointmentData | async">
         <dxi-item dataField="email" [label]="{text: 'Email' | translate}">
           <dxi-validation-rule type="required"></dxi-validation-rule>
           <dxi-validation-rule type="email"></dxi-validation-rule>

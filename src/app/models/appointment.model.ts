@@ -17,3 +17,38 @@ export class Appointment {
     public information: string,
   ) { }
 }
+
+export interface IAppointmentData {
+
+  passcode: string;
+  birthday: Date;
+
+  //--------
+
+  appointmentId: number;
+
+  weekday: string,
+  date: string,
+  time: string,
+  performer: string,
+  occasion: string,
+
+  room: string,
+  facility_id: number,
+
+  street: string,
+  no: string,
+  zipcode: string,
+  city: string,
+  information: string,
+  
+  //--------
+  
+  privacyAccept: boolean;
+
+  userId: number,
+  group: string,
+  name: string,
+  email: string,
+  phonenumber: string,
+}

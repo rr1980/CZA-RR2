@@ -1,27 +1,22 @@
-import { Component, OnInit } from '@angular/core';
+import { Component } from '@angular/core';
 import { Router } from '@angular/router';
 import { CitizenService } from '../citizen.service';
+import { IAppointmentData } from 'src/app/models/appointment.model';
 
 @Component({
   selector: 'app-citizen-complete-booking',
   templateUrl: './citizen-complete-booking.component.html',
   styleUrls: ['./citizen-complete-booking.component.scss']
 })
-export class CitizenCompleteBookingComponent implements OnInit {
+export class CitizenCompleteBookingComponent {
 
-  completeBooking;
-
+  public get appointmentDataValue(): IAppointmentData {
+    return this.cs.get_appointmentDataValue;
+  }
   constructor(private router: Router, public cs: CitizenService) {
     this.onNext = this.onNext.bind(this);
     this.onBack = this.onBack.bind(this);
     this.onPrint = this.onPrint.bind(this);
-
-    cs.completeBooking.subscribe(data=>{
-      this.completeBooking = data;
-    })
-  }
-
-  ngOnInit() {
   }
 
   onNext() {
@@ -32,7 +27,7 @@ export class CitizenCompleteBookingComponent implements OnInit {
     this.router.navigate(['personaldetails'], { state: { back: true } });
   }
 
-  onPrint(){
+  onPrint() {
     let printContents, popupWin;
     printContents = document.getElementById('print-section').innerHTML;
     popupWin = window.open('', '_blank', 'top=0,left=0,height=100%,width=auto,scrollbars=no,menubar=no,toolbar=no,location=no,status=no,titlebar=no');
@@ -97,25 +92,25 @@ export class CitizenCompleteBookingComponent implements OnInit {
             <tr>
               <td class="nameColumn">Dienstleistung:</td>
               <td></td>
-              <td class="fieldColumn">${this.completeBooking.appointment.occasion}<td>
+              <td class="fieldColumn">${this.appointmentDataValue.occasion}<td>
             </tr>
             <tr>
               <td class="nameColumn">Standort:</td>
               <td></td>
               <td class="fieldColumn">
-                ${this.completeBooking.appointment.room} <br/>
-                ${this.completeBooking.appointment.street} ${this.completeBooking.appointment.no}, ${this.completeBooking.appointment.zipcode} ${this.completeBooking.appointment.city}
+                ${this.appointmentDataValue.room} <br/>
+                ${this.appointmentDataValue.street} ${this.appointmentDataValue.no}, ${this.appointmentDataValue.zipcode} ${this.appointmentDataValue.city}
               </td>
             </tr>
             <tr>
               <td class="nameColumn">Datum/Uhrezeit:</td>
               <td></td>
-              <td class="fieldColumn">${this.completeBooking.appointment.date} / ${this.completeBooking.appointment.time}<td>
+              <td class="fieldColumn">${this.appointmentDataValue.date} / ${this.appointmentDataValue.time}<td>
             </tr>
             <tr>
               <td class="nameColumn">Hinweis:</td>
               <td></td>
-              <td class="fieldColumn">${this.completeBooking.appointment.information}<td>
+              <td class="fieldColumn">${this.appointmentDataValue.information}<td>
             </tr>
             <tr>
               <td colspan="2" ><h1>Kontaktdaten:</h1></td>
@@ -123,12 +118,12 @@ export class CitizenCompleteBookingComponent implements OnInit {
             <tr>
               <td class="nameColumn">Telefonnummer:</td>
               <td></td>
-              <td class="fieldColumn">${this.completeBooking.user.phonenumber}<td>
+              <td class="fieldColumn">${this.appointmentDataValue.phonenumber}<td>
             </tr>
             <tr>
               <td class="nameColumn">E-Mail Adresse:</td>
               <td></td>
-              <td class="fieldColumn">${this.completeBooking.user.email}<td>
+              <td class="fieldColumn">${this.appointmentDataValue.email}<td>
             </tr>
             <tr>
             </tr>
@@ -149,6 +144,6 @@ export class CitizenCompleteBookingComponent implements OnInit {
         </body>
       </html>`
     );
-     popupWin.document.close();
+    popupWin.document.close();
   }
 }

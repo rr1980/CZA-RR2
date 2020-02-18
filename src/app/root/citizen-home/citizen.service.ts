@@ -1,18 +1,25 @@
 import { Injectable } from '@angular/core';
 import { Router } from '@angular/router';
-import { Appointment } from 'src/app/models/appointment.model';
-import { Observable } from 'rxjs';
-import { User } from 'src/app/models/user.model';
-import { Passcode } from 'src/app/models/passcode.model';
-import { PersonalDetails } from 'src/app/models/personalDetails.model';
+import { Appointment, IAppointmentData } from 'src/app/models/appointment.model';
+import { Observable, BehaviorSubject } from 'rxjs';
 
 @Injectable()
 export class CitizenService {
 
-  public passcode: Passcode;
-  public appointment: Appointment;
-  public acceptDatenschutz = false;
-  public user = new User(12, '', '', 'r.riesner@computerzentrum.de', '');
+  private _appointmentData: BehaviorSubject<IAppointmentData> = new BehaviorSubject({
+    passcode: 'aaaaaaaaaaaa',
+    birthday: new Date(),
+    userId: 12,
+    email: 'r.riesner@computerzentrum.de'
+  } as IAppointmentData);
+
+  public get get_appointmentData(): Observable<IAppointmentData> {
+    return this._appointmentData.asObservable();
+  }
+
+  public get get_appointmentDataValue(): IAppointmentData {
+    return this._appointmentData.value;
+  }
 
   public get availableAppointment(): Observable<Appointment[]> {
     return new Observable(observer => {
@@ -27,51 +34,31 @@ export class CitizenService {
       observer.complete();
     });
   }
-
-  public get personaldetails(): Observable<User> {
-    return new Observable(observer => {
-      observer.next(this.user);
-      observer.complete();
-    });
-  }
-
-  public get completeBooking(): Observable<any> {
-    return new Observable(observer => {
-      observer.next(
-        {
-          appointment: this.appointment,
-          user: this.user
-        }
-      );
-      observer.complete();
-    });
-  }
-
   constructor(private router: Router) { }
 
-
-  public setPasscode(pc: Passcode) {
-    this.passcode = pc;
-    this.nav(['appointment']);
-  }
-
-  selectAppointment(row) {
-    this.appointment = row;
+  selectAppointment(appointment: Appointment) {
+    const ad = this._appointmentData.value;
+    
+    ad.appointmentId = appointment.id;
+    ad.weekday = appointment.weekday;
+    ad.date = appointment.date;
+    ad.time = appointment.time;
+    ad.performer = appointment.performer;
+    ad.occasion = appointment.occasion;
+    ad.room = appointment.room;
+    ad.facility_id = appointment.facility_id;
+    ad.street = appointment.street;
+    ad.no = appointment.no;
+    ad.zipcode = appointment.zipcode;
+    ad.city = appointment.city;
+    ad.information = appointment.information;
+    
+    this._appointmentData.next(ad);
     this.nav(['privacypolicy']);
   }
 
-  setDatenschutz(value: boolean) {
-    this.acceptDatenschutz = value;
-    this.nav(['personaldetails']);
-  }
-
-  setPersonaldetails(user: User) {
-    this.user = user;
-    this.nav(['completebooking']);
-  }
-
   nav(toGo: string[]) {
-    this.router.navigate(toGo, { state: { next: true } }); 
+    this.router.navigate(toGo, { state: { next: true } });
   }
 }
 
