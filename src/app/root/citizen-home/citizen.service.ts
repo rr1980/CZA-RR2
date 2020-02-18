@@ -7,7 +7,7 @@ import { Observable, BehaviorSubject } from 'rxjs';
 export class CitizenService {
 
   private _appointmentData: BehaviorSubject<IAppointmentData> = new BehaviorSubject({
-    passcode: 'aaaaaaaaaaaa',
+    passcode: 'aaaa-aaaa-aaaa',
     birthday: new Date(),
     userId: 12,
     email: 'r.riesner@computerzentrum.de'
@@ -34,11 +34,12 @@ export class CitizenService {
       observer.complete();
     });
   }
-  constructor(private router: Router) { }
+  constructor(private router: Router) { 
+  }
 
   selectAppointment(appointment: Appointment) {
     const ad = this._appointmentData.value;
-    
+
     ad.appointmentId = appointment.id;
     ad.weekday = appointment.weekday;
     ad.date = appointment.date;
@@ -52,13 +53,72 @@ export class CitizenService {
     ad.zipcode = appointment.zipcode;
     ad.city = appointment.city;
     ad.information = appointment.information;
-    
+
     this._appointmentData.next(ad);
     this.nav(['privacypolicy']);
   }
 
   nav(toGo: string[]) {
     this.router.navigate(toGo, { state: { next: true } });
+  }
+
+  validateFor(path: string): string {
+
+    const aDataVal = this.get_appointmentDataValue;
+
+    if (path === 'passcode') {
+      return 'passcode';
+    }
+    else if (path === 'appointment') {
+      return this.validate_appointment();
+    }
+    else if (path === 'privacypolicy') {
+        return this.validate_privacypolicy();
+    }
+    else if (path === 'personaldetails') {
+        return this.validate_personaldetails();
+    }
+    else if (path === 'completebooking') {
+        return  this.validate_completebooking();
+    }
+
+    return 'passcode';
+  }
+
+  validate_appointment() {
+    if (this.get_appointmentDataValue.passcode && this.get_appointmentDataValue.passcode.length && this.get_appointmentDataValue.birthday) {
+      return 'appointment';
+    }
+    else{
+      return 'passcode';
+    }
+  }
+
+  validate_privacypolicy() {
+    if (this.get_appointmentDataValue.appointmentId) {
+      return 'privacypolicy';
+    }
+    else{
+      return 'appointment';
+    }
+  }
+
+  validate_personaldetails() {
+    if (this.get_appointmentDataValue.privacyAccept === true) {
+      return 'personaldetails';
+    }
+    else{
+      return 'privacypolicy';
+    }
+  }
+  
+  validate_completebooking() {
+    if (this.get_appointmentDataValue.email && this.get_appointmentDataValue.email.length) {
+      return 'completebooking';
+    }
+    else{
+      return 'personaldetails';
+    }
   }
 }
 

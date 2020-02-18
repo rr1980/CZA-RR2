@@ -11,13 +11,25 @@ export class CitizenRouteGuard implements CanActivate {
 
   canActivate(route: ActivatedRouteSnapshot, state: RouterStateSnapshot): boolean | Observable<boolean> | Promise<boolean> {
 
-    let s = this.router.getCurrentNavigation().extras.state;
-    if (s && (s.back | s.next)) {
+    // console.debug(route.url[0].path);
+
+
+    const goTo = this.cs.validateFor(route.url[0].path);
+
+    if(goTo === route.url[0].path){
       return true;
     }
     else{
-      this.router.navigate(['passcode']);
+      this.router.navigate([goTo]);
     }
+
+    // let s = this.router.getCurrentNavigation().extras.state;
+    // if (s && (s.back | s.next)) {
+    //   return true;
+    // }
+    // else{
+    //   this.router.navigate(['passcode']);
+    // }
   }
 }
 

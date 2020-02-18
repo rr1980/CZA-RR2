@@ -20,35 +20,35 @@ export class Appointment {
 
 export interface IAppointmentData {
 
-  passcode: string;
-  birthday: Date;
+  passcode?: string;
+  birthday?: Date;
 
   //--------
 
-  appointmentId: number;
+  appointmentId?: number;
 
-  weekday: string,
-  date: string,
-  time: string,
-  performer: string,
-  occasion: string,
+  weekday?: string,
+  date?: string,
+  time?: string,
+  performer?: string,
+  occasion?: string,
 
-  room: string,
-  facility_id: number,
+  room?: string,
+  facility_id?: number,
 
-  street: string,
-  no: string,
-  zipcode: string,
-  city: string,
-  information: string,
+  street?: string,
+  no?: string,
+  zipcode?: string,
+  city?: string,
+  information?: string,
   
   //--------
   
-  privacyAccept: boolean;
+  privacyAccept?: boolean;
 
-  userId: number,
-  group: string,
-  name: string,
-  email: string,
-  phonenumber: string,
+  userId?: number,
+  group?: string,
+  name?: string,
+  email?: string,
+  phonenumber?: string,
 }

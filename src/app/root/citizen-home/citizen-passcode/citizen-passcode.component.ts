@@ -26,6 +26,7 @@ export class CitizenPasscodeComponent {
 
   constructor(public ls: LanguageService, private cs: CitizenService) {
     this.onSubmit = this.onSubmit.bind(this);
+    this.onKeyUp = this.onKeyUp.bind(this);
   }
 
   onSubmit() {
@@ -35,15 +36,24 @@ export class CitizenPasscodeComponent {
     }
   }
 
-  // public modelChange(str: string): void {
-  //   if (str != null) {
-  //     if (str.length === 4 || str.length === 9) {
-  //       this.passcode = str + '-';
-  //     } else if ((str.length === 6 || str.length === 11) && str.endsWith('-')) {
-  //       this.passcode = str.substr(0, str.length - 1);
-  //     } else {
-  //       this.passcode = str;
-  //     }
-  //   }
-  // }
+  onKeyUp(e){
+    var text = this.passcodeForm.instance.getEditor('passcode').option('text');
+    this.passcodeForm.instance.updateData("passcode", this.modelChange(text));
+  }
+
+  private modelChange(str: string): string {
+    let newStr='';
+    
+    if (str != null) {
+      if (str.length === 4 || str.length === 9) {
+        newStr = str + '-';
+      } else if ((str.length === 6 || str.length === 11) && str.endsWith('-')) {
+        newStr = str.substr(0, str.length - 1);
+      } else {
+        newStr = str;
+      }
+    }
+
+    return newStr;
+  }
 }

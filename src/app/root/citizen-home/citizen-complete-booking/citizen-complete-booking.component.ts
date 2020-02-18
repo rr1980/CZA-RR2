@@ -35,7 +35,7 @@ export class CitizenCompleteBookingComponent {
     popupWin.document.write(`
       <html>
         <head>
-          <title>Print tab</title>
+          <title>CZA - Termin</title>
           <style>
           .confirmation {
             width: 600px;
@@ -135,7 +135,7 @@ export class CitizenCompleteBookingComponent {
               window.removeEventListener('load', triggerPrint, false);
               setTimeout(() => {
                 window.print();
-                // setTimeout(() => window.close(), 0);
+                 setTimeout(() => window.close(), 0);
               }, 0);
             }
             //window.addEventListener("DOMContentLoaded",triggerPrint,false) 
