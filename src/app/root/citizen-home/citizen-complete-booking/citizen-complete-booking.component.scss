@@ -1,0 +1,64 @@
+
+
+:host{
+  height: 100%;
+  width: 100%;
+  margin: 0; 
+}
+
+.header{
+  display: flex;
+  flex: none;
+  justify-content: center;
+  align-items: center;
+  margin-top: 20px;
+}
+
+.content{
+  display: flex;
+  min-height: auto;
+  flex: 1 1 auto;
+  justify-content: center;
+  align-items: center;
+}
+
+.complete-booking-container {
+  margin-top: 20px;
+  padding: 20px;
+  flex: none;
+  margin-bottom: 20px;
+  width: 40%;
+  max-height: 550px;
+  overflow: hidden;
+}
+
+// .confirmation {
+//   width: 600px;
+//   height: 450px;
+//   position: relative;
+//   left: 50%;
+//   margin-left: -300px;
+//   margin-bottom: 50px;
+// }
+
+// .nameColumn {
+//   width: 170px;
+//   height: 40px;
+//   text-align: right;
+//   vertical-align: top;
+// }
+
+// .fillerColumn {
+//   width: 25px;
+// }
+
+// .fieldColumn {
+//   width: 270px;
+//   text-align: left;
+//   vertical-align: top;
+// }
+
+// .button {
+//   position: relative;
+//   float: right;
+// }

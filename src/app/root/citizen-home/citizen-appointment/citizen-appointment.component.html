@@ -1,0 +1,30 @@
+<div class="container">
+  <div class="header">
+    <h1>Freie Termine</h1>
+  </div>
+  <div class="content">
+    <div class="appointment-container mat-elevation-z8">
+
+      <dx-tree-list [dataSource]="dataSource" height='100%' keyExpr="id" [rowAlternationEnabled]="true"
+        [hoverStateEnabled]="true" [columnAutoWidth]="true" [wordWrapEnabled]="true" [showBorders]="true">
+
+        <dxo-header-filter [visible]="true"></dxo-header-filter>
+
+        <dxi-column [width]="'100px'" dataField="weekday"></dxi-column>
+        <dxi-column [width]="'100px'" dataField="date"></dxi-column>
+        <dxi-column [width]="'100px'" dataField="time"></dxi-column>
+        <dxi-column dataField="performer"></dxi-column>
+        <dxi-column dataField="occasion"></dxi-column>
+        <dxi-column type="buttons">
+          <dxi-button template="myCommand">
+            <div *dxTemplate="let data of 'myCommand'">
+              <dx-button icon="check" type="primary" [text]="'Select' | translate" (onClick)="selectAppointment(data.data)">
+              </dx-button>
+            </div>
+          </dxi-button>
+        </dxi-column>
+      </dx-tree-list>
+      
+    </div>
+  </div>
+</div>

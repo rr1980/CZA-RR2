@@ -1,0 +1,58 @@
+<div id="print-section" class="confirmation">
+  <table>
+    <colgroup>
+      <col class="nameColumn">
+      <col class="fillerColumn">
+      <col class="fieldColumn">
+    </colgroup>
+    <tr>
+      <td colspan="3" ><h1>Terminvereinbarung:</h1></td>
+    </tr>
+    <tr>
+      <td class="nameColumn">Dienstleistung:</td>
+      <td></td>
+      <td class="fieldColumn">{{appointment.occasion}}<td>
+    </tr>
+    <tr>
+      <td class="nameColumn">Standort:</td>
+      <td></td>
+      <td class="fieldColumn">
+        {{appointment.room}} <br/>
+        {{appointment.street}} {{appointment.no}}, {{appointment.zipcode}} {{appointment.city}}
+      </td>
+    </tr>
+    <tr>
+      <td class="nameColumn">Datum/Uhrezeit:</td>
+      <td></td>
+      <td class="fieldColumn">{{appointment.date}} / {{appointment.time}}<td>
+    </tr>
+    <tr>
+      <td class="nameColumn">Hinweis:</td>
+      <td></td>
+      <td class="fieldColumn">{{appointment.information}}<td>
+    </tr>
+    <tr>
+      <td colspan="2" ><h1>Kontaktdaten:</h1></td>
+    </tr>
+    <tr>
+      <td class="nameColumn">Telefonnummer:</td>
+      <td></td>
+      <td class="fieldColumn">{{user.phonenumber}}<td>
+    </tr>
+    <tr>
+      <td class="nameColumn">E-Mail Adresse:</td>
+      <td></td>
+      <td class="fieldColumn">{{user.email}}<td>
+    </tr>
+    <tr>
+    </tr>
+  </table>
+</div>
+<div class="printSection">
+  <button mat-button
+    class="button"
+    color="primary"
+    (click)="print()">
+    Drucken
+  </button>
+</div>

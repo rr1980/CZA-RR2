@@ -1,0 +1,16 @@
+
+:host{
+    height: 100%;
+    width: 100%;
+    margin: 0; 
+}
+
+.navbar{
+    flex: none;
+}
+
+.content{
+    display: flex;
+    min-height: auto;
+    flex: 1 1 auto;
+}

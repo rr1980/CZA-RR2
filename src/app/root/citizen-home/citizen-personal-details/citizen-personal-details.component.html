@@ -1,0 +1,25 @@
+<div class="container">
+  <div class="content">
+    <div class="personal-detail-container mat-elevation-z8">
+      <div class="header">
+        <h1>{{'Contact data' | translate}}</h1>
+      </div>
+      <dx-form id="personalDetailsForm" #personalDetailsForm [formData]="personalDetailsFormData">
+        <dxi-item dataField="email" [label]="{text: 'Email' | translate}">
+          <dxi-validation-rule type="required"></dxi-validation-rule>
+          <dxi-validation-rule type="email"></dxi-validation-rule>
+        </dxi-item>
+        <dxi-item dataField="phonenumber" [label]="{text: 'Phonenumber' | translate}"></dxi-item>
+      </dx-form>
+
+      <dx-toolbar>
+        <dxi-item widget="dxButton" location="before" toolbar="bottom"
+          [options]="{ text: 'Back' | translate, onClick: onBack }">
+        </dxi-item>
+        <dxi-item widget="dxButton" location="after" toolbar="bottom"
+          [options]="{ text: 'Next' | translate, onClick: onNext }">
+        </dxi-item>
+      </dx-toolbar>
+    </div>
+  </div>
+</div>

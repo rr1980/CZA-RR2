@@ -1,0 +1,39 @@
+.confirmation {
+  width: 600px;
+  height: 450px;
+  position: relative;
+  left: 50%;
+  margin-left: -300px;
+  margin-bottom: 50px;
+}
+
+.nameColumn {
+  width: 170px;
+  height: 40px;
+  text-align: right;
+  vertical-align: top;
+}
+
+.fillerColumn {
+  width: 25px;
+}
+
+.fieldColumn {
+  width: 270px;
+  text-align: left;
+  vertical-align: top;
+}
+
+.button {
+  position: relative;
+  float: right;
+}
+
+.printSection {
+  width: 600px;
+  height: 20px;
+  position: relative;
+  left: 50%;
+  margin-left: -300px;
+  margin-bottom: 50px;
+}
