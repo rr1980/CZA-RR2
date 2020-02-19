@@ -84,12 +84,12 @@ export class LanguageService {
 
   private forcePageRepaint() {
     refreshTheme();
-    // const currentUrl = this.router.url;
+    const currentUrl = this.router.url;
 
-    // if (currentUrl) {
-    //   this.router.navigateByUrl('/', { skipLocationChange: true }).then(() => {
-    //     this.router.navigate([currentUrl]);
-    //   });
-    // }
+    if (currentUrl) {
+      this.router.navigateByUrl('/', { skipLocationChange: true }).then(() => {
+        this.router.navigate([currentUrl]);
+      });
+    }
   }
 }

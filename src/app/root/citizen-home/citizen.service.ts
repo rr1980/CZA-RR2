@@ -41,7 +41,7 @@ export class CitizenService {
       let ad = {
         isCheckedIn: false,
         userId: response.user.id,
-        group: response.user.group,
+        // group: response.user.group,
         email: 'r.riesner@computerzentrum.de'
       } as IAppointmentData;
 

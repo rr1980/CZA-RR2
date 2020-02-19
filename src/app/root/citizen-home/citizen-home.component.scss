@@ -1,15 +1,7 @@
 :host{
-    height: 100%;
-    width: 100%;
-    margin: 0; 
-}
-
-.content{
     display: flex;
-    min-height: auto;
+    flex-direction: column;
+    justify-content: flex-start;
+    align-items: stretch;
     flex: 1 1 auto;
-}
-
-.footer{
-    flex: none;
 }

@@ -1,16 +1,13 @@
-<div class="container">
-  <div class="content">
-    <dx-form id="passcodeForm" #passcodeForm [formData]="passcodeFormData">
-      <dxi-item dataField="passcode" [label]="{text: 'Passcode' | translate}" [editorOptions]="{ onKeyUp: onKeyUp, maxLength: 14 }">
-        <dxi-validation-rule type="required"></dxi-validation-rule>
-      </dxi-item>
-      <dxi-item dataField="birthday" [label]="{text: 'Birthday' | translate}" editorType="dxDateBox">
-        <dxi-validation-rule type="required"></dxi-validation-rule>
-      </dxi-item>
-      <dxi-item itemType="button">
-        <dxo-button-options [onClick]="onSubmit" [useSubmitBehavior]="true" text="{{ 'Submit' | translate }}">
-        </dxo-button-options>
-      </dxi-item>
-    </dx-form>
-  </div>
-</div>
+<dx-form id="passcodeForm" #passcodeForm [formData]="passcodeFormData">
+  <dxi-item dataField="passcode" [label]="{text: 'Passcode' | translate}"
+    [editorOptions]="{ onKeyUp: onKeyUp, maxLength: 14 }">
+    <dxi-validation-rule type="required"></dxi-validation-rule>
+  </dxi-item>
+  <dxi-item dataField="birthday" [label]="{text: 'Birthday' | translate}" editorType="dxDateBox">
+    <dxi-validation-rule type="required"></dxi-validation-rule>
+  </dxi-item>
+  <dxi-item itemType="button">
+    <dxo-button-options [onClick]="onSubmit" [useSubmitBehavior]="true" text="{{ 'Submit' | translate }}">
+    </dxo-button-options>
+  </dxi-item>
+</dx-form>
