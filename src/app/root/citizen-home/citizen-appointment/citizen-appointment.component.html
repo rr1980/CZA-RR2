@@ -3,7 +3,7 @@
 </div>
 <div class="content">
   <div class="appointment-container mat-elevation-z8">
-    <dx-tree-list [dataSource]="dataSource" height='100%' width='100%' keyExpr="id" [rowAlternationEnabled]="true"
+    <dx-tree-list [class]="'appointment-dx-tree-list'" [dataSource]="dataSource" width='100%' keyExpr="id" [rowAlternationEnabled]="true"
       [hoverStateEnabled]="true" [columnAutoWidth]="true" [wordWrapEnabled]="true" [showBorders]="true">
       <dxo-header-filter [visible]="true"></dxo-header-filter>
       <dxi-column [width]="'100px'" dataField="weekday"></dxi-column>

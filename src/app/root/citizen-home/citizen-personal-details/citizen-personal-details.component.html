@@ -1,10 +1,10 @@
-<div class="container">
+<div class="header">
+  <h1>{{'Contact data' | translate}}</h1>
+</div>
   <div class="content">
     <div class="personal-detail-container mat-elevation-z8">
-      <div class="header">
-        <h1>{{'Contact data' | translate}}</h1>
-      </div>
-      <dx-form id="personalDetailsForm" #personalDetailsForm [formData]="appointmentData | async">
+
+      <dx-form id="personalDetailsForm" [class]="'privacy-dx-form'" #personalDetailsForm [formData]="appointmentData | async">
         <dxi-item dataField="email" [label]="{text: 'Email' | translate}">
           <dxi-validation-rule type="required"></dxi-validation-rule>
           <dxi-validation-rule type="email"></dxi-validation-rule>
@@ -12,7 +12,7 @@
         <dxi-item dataField="phonenumber" [label]="{text: 'Phonenumber' | translate}"></dxi-item>
       </dx-form>
 
-      <dx-toolbar>
+      <dx-toolbar [class]="'privacy-dx-toolbar'">
         <dxi-item widget="dxButton" location="before" toolbar="bottom"
           [options]="{ text: 'Back' | translate, onClick: onBack }">
         </dxi-item>
@@ -22,4 +22,3 @@
       </dx-toolbar>
     </div>
   </div>
-</div>

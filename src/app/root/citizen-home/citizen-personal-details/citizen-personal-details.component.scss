@@ -1,32 +1,44 @@
 
+
 :host{
-  height: 100%;
-  width: 100%;
   margin: 0; 
+
+  display: flex;
+  flex-direction: column;
+  justify-content: flex-start;
+  align-items: stretch;
+  flex: 1 1 100%;
 }
 
 .header{
-  display: flex;
-  flex: none;
+  flex: 0 0 68px;
+  padding-top: 20px;
   justify-content: center;
   align-items: center;
-  margin-top: 20px;
+  display: flex;
 }
 
 .content{
+  padding: 30px;
+  flex: 1 1 100%;
   display: flex;
-  min-height: auto;
-  flex: 1 1 auto;
+  flex-direction: column;
   justify-content: center;
   align-items: center;
 }
 
 .personal-detail-container {
-  margin-top: 20px;
+  display: flex;
+  flex-direction: column;
+  flex: 0 1 auto;
+  width: 30%;
+}
+
+.privacy-dx-form{
+  flex: 0 1 auto;
   padding: 20px;
-  flex: none;
-  margin-bottom: 20px;
-  width: 50%;
-  max-height: 550px;
-  overflow: hidden;
+}
+
+.privacy-dx-toolbar{
+  flex: 0 1 auto;
 }

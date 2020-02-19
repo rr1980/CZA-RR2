@@ -1,32 +1,31 @@
-<div class="container" id="print-section">
-  <div class="content">
-    <div class="complete-booking-container mat-elevation-z8">
-      <dx-form id="completeBookingForm" #completeBookingForm [formData]="appointmentDataValue" labelLocation="left" readOnly="true">
-        <dxi-item itemType="group" [caption]="'Appointment' | translate">
-          <dxi-item dataField="occasion" [label]="{text: 'Service' | translate}"></dxi-item>
-          <dxi-item dataField="room" [label]="{text: 'Location' | translate}">
-            {{appointmentDataValue.room}} <br />
-            {{appointmentDataValue.street}} {{appointmentDataValue.no}},
-            {{appointmentDataValue.zipcode}} {{appointmentDataValue.city}}
-          </dxi-item>
-          <dxi-item dataField="date" [label]="{text: 'Date' | translate}">
-            {{appointmentDataValue.date}} / {{appointmentDataValue.time}}
-          </dxi-item>
-          <dxi-item dataField="information" [label]="{text: 'Hint' | translate}"></dxi-item>
+<div class="content">
+  <div class="complete-booking-container mat-elevation-z8">
+    <dx-form id="completeBookingForm" [class]="'privacy-dx-form'" #completeBookingForm [formData]="appointmentDataValue" labelLocation="left"
+      readOnly="true">
+      <dxi-item itemType="group" [caption]="'Appointment' | translate">
+        <dxi-item dataField="occasion" [label]="{text: 'Service' | translate}"></dxi-item>
+        <dxi-item dataField="room" [label]="{text: 'Location' | translate}">
+          {{appointmentDataValue.room}} <br />
+          {{appointmentDataValue.street}} {{appointmentDataValue.no}},
+          {{appointmentDataValue.zipcode}} {{appointmentDataValue.city}}
         </dxi-item>
-        <dxi-item itemType="group" [caption]="'Contact data' | translate">
-          <dxi-item dataField="phonenumber" [label]="{text: 'Phonenumber' | translate}"></dxi-item>
-          <dxi-item dataField="email" [label]="{text: 'Email' | translate}"></dxi-item>
+        <dxi-item dataField="date" [label]="{text: 'Date' | translate}">
+          {{appointmentDataValue.date}} / {{appointmentDataValue.time}}
         </dxi-item>
-      </dx-form>
-      <dx-toolbar>
-        <dxi-item widget="dxButton" location="before" toolbar="bottom"
-          [options]="{ text: 'Back' | translate, onClick: onBack }">
-        </dxi-item>
-        <dxi-item widget="dxButton" location="after" toolbar="bottom"
-          [options]="{ text: 'Submit' | translate, onClick: onNext }">
-        </dxi-item>
-      </dx-toolbar>
-    </div>
+        <dxi-item dataField="information" [label]="{text: 'Hint' | translate}"></dxi-item>
+      </dxi-item>
+      <dxi-item itemType="group" [caption]="'Contact data' | translate">
+        <dxi-item dataField="phonenumber" [label]="{text: 'Phonenumber' | translate}"></dxi-item>
+        <dxi-item dataField="email" [label]="{text: 'Email' | translate}"></dxi-item>
+      </dxi-item>
+    </dx-form>
+    <dx-toolbar [class]="'privacy-dx-toolbar'">
+      <dxi-item widget="dxButton" location="before" toolbar="bottom"
+        [options]="{ text: 'Back' | translate, onClick: onBack }">
+      </dxi-item>
+      <dxi-item widget="dxButton" location="after" toolbar="bottom"
+        [options]="{ text: 'Submit' | translate, onClick: onNext }">
+      </dxi-item>
+    </dx-toolbar>
   </div>
 </div>

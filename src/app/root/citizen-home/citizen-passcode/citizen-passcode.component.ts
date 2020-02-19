@@ -17,7 +17,7 @@ export class CitizenPasscodeComponent {
   @ViewChild("passcodeForm", { static: false }) passcodeForm: DxFormComponent;
 
   passcodeFormData: Passcode = {
-    passcode: '',
+    passcode: 'dd',
     birthday: new Date()
   } as  Passcode;
 
