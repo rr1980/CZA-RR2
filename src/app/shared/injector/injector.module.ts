@@ -24,6 +24,7 @@ import { MatIconModule } from '@angular/material/icon';
 import { MatInputModule } from '@angular/material/input';
 import { MatTableModule } from '@angular/material/table';
 import { MatCheckboxModule } from '@angular/material/checkbox';
+import { ApiService } from 'src/app/service/api/api.service';
 
 @NgModule({
     declarations: [
@@ -89,6 +90,7 @@ export class InjectorModule {
             ngModule: InjectorModule,
             providers: [
                 LanguageService,
+                ApiService
             ]
         };
     }

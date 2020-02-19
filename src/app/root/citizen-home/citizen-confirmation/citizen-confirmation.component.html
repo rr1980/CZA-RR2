@@ -1,58 +1,32 @@
-<div id="print-section" class="confirmation">
-  <table>
-    <colgroup>
-      <col class="nameColumn">
-      <col class="fillerColumn">
-      <col class="fieldColumn">
-    </colgroup>
-    <tr>
-      <td colspan="3" ><h1>Terminvereinbarung:</h1></td>
-    </tr>
-    <tr>
-      <td class="nameColumn">Dienstleistung:</td>
-      <td></td>
-      <td class="fieldColumn">{{appointment.occasion}}<td>
-    </tr>
-    <tr>
-      <td class="nameColumn">Standort:</td>
-      <td></td>
-      <td class="fieldColumn">
-        {{appointment.room}} <br/>
-        {{appointment.street}} {{appointment.no}}, {{appointment.zipcode}} {{appointment.city}}
-      </td>
-    </tr>
-    <tr>
-      <td class="nameColumn">Datum/Uhrezeit:</td>
-      <td></td>
-      <td class="fieldColumn">{{appointment.date}} / {{appointment.time}}<td>
-    </tr>
-    <tr>
-      <td class="nameColumn">Hinweis:</td>
-      <td></td>
-      <td class="fieldColumn">{{appointment.information}}<td>
-    </tr>
-    <tr>
-      <td colspan="2" ><h1>Kontaktdaten:</h1></td>
-    </tr>
-    <tr>
-      <td class="nameColumn">Telefonnummer:</td>
-      <td></td>
-      <td class="fieldColumn">{{user.phonenumber}}<td>
-    </tr>
-    <tr>
-      <td class="nameColumn">E-Mail Adresse:</td>
-      <td></td>
-      <td class="fieldColumn">{{user.email}}<td>
-    </tr>
-    <tr>
-    </tr>
-  </table>
-</div>
-<div class="printSection">
-  <button mat-button
-    class="button"
-    color="primary"
-    (click)="print()">
-    Drucken
-  </button>
+<div class="container" id="print-section">
+  <div class="content">
+    <div class="confirmation-container mat-elevation-z8">
+      <dx-form id="confirmationForm" #confirmationForm [formData]="appointmentDataValue" labelLocation="left" readOnly="true">
+        <dxi-item itemType="group" [caption]="'Appointment' | translate">
+          <dxi-item dataField="occasion" [label]="{text: 'Service' | translate}"></dxi-item>
+          <dxi-item dataField="room" [label]="{text: 'Location' | translate}">
+            {{appointmentDataValue.room}} <br />
+            {{appointmentDataValue.street}} {{appointmentDataValue.no}},
+            {{appointmentDataValue.zipcode}} {{appointmentDataValue.city}}
+          </dxi-item>
+          <dxi-item dataField="date" [label]="{text: 'Date' | translate}">
+            {{appointmentDataValue.date}} / {{appointmentDataValue.time}}
+          </dxi-item>
+          <dxi-item dataField="information" [label]="{text: 'Hint' | translate}"></dxi-item>
+        </dxi-item>
+        <dxi-item itemType="group" [caption]="'Contact data' | translate">
+          <dxi-item dataField="phonenumber" [label]="{text: 'Phonenumber' | translate}"></dxi-item>
+          <dxi-item dataField="email" [label]="{text: 'Email' | translate}"></dxi-item>
+        </dxi-item>
+      </dx-form>
+      <dx-toolbar>
+        <dxi-item widget="dxButton" location="center" toolbar="bottom"
+          [options]="{ text: 'Print' | translate, onClick: onPrint }">
+        </dxi-item>
+        <dxi-item widget="dxButton" location="after" toolbar="bottom"
+          [options]="{ text: 'Finished' | translate, onClick: onNext }">
+        </dxi-item>
+      </dx-toolbar>
+    </div>
+  </div>
 </div>

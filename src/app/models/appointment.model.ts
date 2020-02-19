@@ -20,10 +20,8 @@ export class Appointment {
 
 export interface IAppointmentData {
 
-  passcode?: string;
-  birthday?: Date;
-
-  //--------
+  isCheckedIn: boolean;
+  //-------- appointment
 
   appointmentId?: number;
 
@@ -42,7 +40,7 @@ export interface IAppointmentData {
   city?: string,
   information?: string,
   
-  //--------
+  //-------- user
   
   privacyAccept?: boolean;
 
@@ -51,4 +49,8 @@ export interface IAppointmentData {
   name?: string,
   email?: string,
   phonenumber?: string,
+}
+
+export interface AppointmentFinishResponse{
+  appointment: IAppointmentData
 }

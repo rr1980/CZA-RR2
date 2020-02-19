@@ -1,6 +1,6 @@
 <div class="container">
   <div class="content">
-    <dx-form id="passcodeForm" #passcodeForm [formData]="appointmentData | async">
+    <dx-form id="passcodeForm" #passcodeForm [formData]="passcodeFormData">
       <dxi-item dataField="passcode" [label]="{text: 'Passcode' | translate}" [editorOptions]="{ onKeyUp: onKeyUp, maxLength: 14 }">
         <dxi-validation-rule type="required"></dxi-validation-rule>
       </dxi-item>

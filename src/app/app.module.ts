@@ -6,6 +6,8 @@ import { AppComponent } from './app.component';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 
 import { InjectorModule } from './shared/injector/injector.module';
+import { fakeBackendProvider } from './service/fake-backend/fake-backend.interceptor';
+import { HttpClientModule } from '@angular/common/http';
 
 @NgModule({
    declarations: [
@@ -15,10 +17,12 @@ import { InjectorModule } from './shared/injector/injector.module';
    imports: [
       BrowserModule,
       BrowserAnimationsModule,
+      HttpClientModule,
       InjectorModule.forRoot(),
       AppRoutingModule
    ],
    providers: [
+      fakeBackendProvider
    ],
    bootstrap: [
       AppComponent

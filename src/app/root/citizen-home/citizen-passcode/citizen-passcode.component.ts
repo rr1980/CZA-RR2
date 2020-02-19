@@ -4,6 +4,7 @@ import { CitizenService } from '../citizen.service';
 import { DxFormComponent } from 'devextreme-angular/ui/form';
 import { IAppointmentData } from 'src/app/models/appointment.model';
 import { Observable } from 'rxjs';
+import { Passcode } from 'src/app/models/passcode.model';
 
 @Component({
   selector: 'app-citizen-passcode',
@@ -15,9 +16,10 @@ export class CitizenPasscodeComponent {
 
   @ViewChild("passcodeForm", { static: false }) passcodeForm: DxFormComponent;
 
-  public get appointmentData(): Observable<IAppointmentData> {
-    return this.cs.get_appointmentData;
-  }
+  passcodeFormData: Passcode = {
+    passcode: '',
+    birthday: new Date()
+  } as  Passcode;
 
   buttonOptions = {
     text: "Absenden",
@@ -32,18 +34,18 @@ export class CitizenPasscodeComponent {
   onSubmit() {
     var validationResult = this.passcodeForm.instance.validate();
     if (validationResult.isValid) {
-      this.cs.nav(['appointment']);
+      this.cs.set_passcode(this.passcodeFormData);
     }
   }
 
-  onKeyUp(e){
+  onKeyUp(e: any) {
     var text = this.passcodeForm.instance.getEditor('passcode').option('text');
     this.passcodeForm.instance.updateData("passcode", this.modelChange(text));
   }
 
   private modelChange(str: string): string {
-    let newStr='';
-    
+    let newStr = '';
+
     if (str != null) {
       if (str.length === 4 || str.length === 9) {
         newStr = str + '-';

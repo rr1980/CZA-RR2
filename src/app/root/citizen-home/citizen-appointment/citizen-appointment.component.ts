@@ -10,11 +10,13 @@ import { Observable } from 'rxjs';
 })
 export class CitizenAppointmentComponent {
 
-  public get dataSource(): Observable<Appointment[]> {
-    return this.cs.availableAppointment;
-  }
+  dataSource: Appointment[] = [];
 
-  constructor(private cs: CitizenService) { }
+  constructor(private cs: CitizenService) {
+    this.cs.availableAppointment.subscribe(r=> {
+      this.dataSource = r;
+    });
+   }
 
   selectAppointment(row) {
     this.cs.selectAppointment(row);
