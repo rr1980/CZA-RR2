@@ -4,6 +4,7 @@ import { Routes, RouterModule } from '@angular/router';
 import { FooterComponent } from 'src/app/footer/footer.component';
 
 import { CitizenHomeComponent } from './citizen-home.component';
+import { CitizenHeaderComponent } from './citizen-header/citizen-header.component';
 import { CitizenPasscodeComponent } from './citizen-passcode/citizen-passcode.component';
 import { CitizenAppointmentComponent } from './citizen-appointment/citizen-appointment.component';
 import { CitizenPrivacyPolicyComponent } from './citizen-privacy-policy/citizen-privacy-policy.component';
@@ -11,6 +12,7 @@ import { CitizenPersonalDetailsComponent } from './citizen-personal-details/citi
 import { CitizenCompleteBookingComponent } from './citizen-complete-booking/citizen-complete-booking.component';
 import { CitizenConfirmationComponent } from './citizen-confirmation/citizen-confirmation.component';
 import { CitizenRouteGuard } from './citizen-route.guard';
+import { CitizenFooterComponent } from './citizen-footer/citizen-footer.component';
 
 const routes: Routes = [
   {
@@ -39,7 +41,9 @@ const routes: Routes = [
 export class CitizenHomeRoutingModule { }
 
 export const routedComponents = [
+  CitizenHeaderComponent,
   CitizenHomeComponent,
+  CitizenFooterComponent,
   FooterComponent,
   CitizenPasscodeComponent,
   CitizenAppointmentComponent,

@@ -4,7 +4,7 @@
 <div class="content">
   <div class="privacy-container mat-elevation-z8">
 
-    <dx-text-area [class]="'privacy-text-area'" [readOnly]="true" [value]="privacy | async">
+    <dx-text-area [class]="'privacy-text-area'" [height]="1" [readOnly]="true" [value]="privacy | async">
     </dx-text-area>
     <dx-form id="privacyForm" [class]="'privacy-dx-form'" #privacyForm [formData]="appointmentData | async">
       <dxi-item itemType="group" [colCount]="10">
