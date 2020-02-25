@@ -32,7 +32,7 @@ html, body {
     height: 100%;
     width: 100%;
     margin: 0; 
-    background-color: #f0f2f3;
+    // background-color: #f0f2f3;
 }
 
 
@@ -47,8 +47,8 @@ html, body {
 //     align-items: stretch;
 // }
 
-.dx-list .dx-scrollable-scrollbar.dx-scrollbar-vertical,  
-.dx-list .dx-scrollable-scrollbar.dx-scrollbar-vertical .dx-scrollable-scroll {  
+.dx-scrollable-scrollbar.dx-scrollbar-vertical,  
+.dx-scrollable-scrollbar.dx-scrollbar-vertical .dx-scrollable-scroll {  
     width: 15px;  
 }  
 

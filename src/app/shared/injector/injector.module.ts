@@ -5,7 +5,6 @@ import { ReactiveFormsModule, FormsModule } from '@angular/forms';
 import { LanguagePipe } from 'src/app/pipes/language.pipe';
 import { LanguageService } from 'src/app/service/language/language.service';
 
-import { FlexLayoutModule } from '@angular/flex-layout';
 
 import { DxButtonModule } from 'devextreme-angular/ui/button';
 import { DxSchedulerModule } from 'devextreme-angular/ui/scheduler';
@@ -35,8 +34,6 @@ import { ApiService } from 'src/app/service/api/api.service';
         ReactiveFormsModule,
         FormsModule,
 
-        FlexLayoutModule,
-
         MatToolbarModule,
         MatMenuModule,
         MatSelectModule,
@@ -59,8 +56,6 @@ import { ApiService } from 'src/app/service/api/api.service';
         CommonModule,
         ReactiveFormsModule,
         FormsModule,
-
-        FlexLayoutModule,
 
         MatToolbarModule,
         MatMenuModule,
