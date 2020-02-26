@@ -31,7 +31,12 @@ export const customMessages = {
     'Date': 'Date',
     'Hint': 'Hint',
     'Print': 'Print',
-    'Finished': 'Finished'
+    'Finished': 'Finished',
+    'day': 'Day',
+    'date': 'Date',
+    'time': 'Time',
+    'performer': 'Performer',
+    'occasion': 'occasion'
   },
   de: {
     'greetingMessage': "Willkommen bei {0}",
@@ -56,6 +61,9 @@ export const customMessages = {
     'Date': 'Datum',
     'Hint': 'Hinweis',
     'Print': 'Drucken',
-    'Finished': 'Fertig'
+    'Finished': 'Fertig',
+    'day': 'Tag',
+    'date': 'Datum',
+    'time': 'Zeit'
   }
 }

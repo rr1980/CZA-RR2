@@ -3,14 +3,14 @@
 </div>
 <div class="content">
   <div class="appointment-container">
-    <dx-tree-list [class]="'appointment-dx-tree-list'" [dataSource]="dataSource" width='100%' keyExpr="id" [rowAlternationEnabled]="true"
-      [hoverStateEnabled]="true" [columnAutoWidth]="true" [wordWrapEnabled]="true" [showBorders]="true">
+    <dx-tree-list [class]="'appointment-dx-tree-list'" [dataSource]="dataSource" width='100%' keyExpr="id" [rowAlternationEnabled]="false"
+      [hoverStateEnabled]="true" [columnAutoWidth]="true" [wordWrapEnabled]="true" [showBorders]="false">
       <dxo-header-filter [visible]="true"></dxo-header-filter>
-      <dxi-column [width]="'100px'" dataField="weekday"></dxi-column>
-      <dxi-column [width]="'100px'" dataField="date"></dxi-column>
-      <dxi-column [width]="'100px'" dataField="time"></dxi-column>
-      <dxi-column dataField="performer"></dxi-column>
-      <dxi-column dataField="occasion"></dxi-column>
+      <dxi-column [width]="'100px'" dataField="weekday" [caption]="'day' | translate"></dxi-column>
+      <dxi-column [width]="'100px'" dataField="date" [caption]="'date' | translate"></dxi-column>
+      <dxi-column [width]="'100px'" dataField="time" [caption]="'time' | translate"></dxi-column>
+      <dxi-column dataField="performer" [caption]="'performer' | translate"></dxi-column>
+      <dxi-column dataField="occasion" [caption]="'occasion' | translate"></dxi-column>
       <dxi-column type="buttons">
         <dxi-button template="myCommand">
           <div *dxTemplate="let data of 'myCommand'">
