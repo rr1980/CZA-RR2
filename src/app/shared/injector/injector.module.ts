@@ -13,6 +13,7 @@ import { DxDateBoxModule } from 'devextreme-angular/ui/date-box';
 import { DxTreeListModule } from 'devextreme-angular/ui/tree-list';
 import { DxToolbarModule } from 'devextreme-angular/ui/toolbar';
 import { DxTextAreaModule } from 'devextreme-angular/ui/text-area';
+import { DxSelectBoxModule } from 'devextreme-angular/ui/select-box';
 
 import { MatToolbarModule } from '@angular/material/toolbar';
 import { MatSelectModule } from '@angular/material/select';
@@ -50,7 +51,8 @@ import { ApiService } from 'src/app/service/api/api.service';
         DxDateBoxModule,
         DxTreeListModule,
         DxToolbarModule,
-        DxTextAreaModule
+        DxTextAreaModule,
+        DxSelectBoxModule
     ],
     exports: [
         CommonModule,
@@ -74,6 +76,7 @@ import { ApiService } from 'src/app/service/api/api.service';
         DxTreeListModule,
         DxToolbarModule,
         DxTextAreaModule,
+        DxSelectBoxModule,
 
         LanguagePipe,
 

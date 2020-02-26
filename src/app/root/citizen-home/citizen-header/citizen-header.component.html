@@ -1,11 +1,6 @@
+<div class="citizen-header-greeting">{{ 'greetingMessage' | translate: ['CZA'] }}</div>
 
-
-    <div class="citizen-header-greeting">{{ 'greetingMessage' | translate: ['CZA'] }}</div>
-    <mat-form-field class="citizen-header-lang-select">
-        <mat-label></mat-label>
-        <mat-select [value]="(selectedLangauge | async)" (selectionChange)="ls.setLanguage($event.value)">
-            <mat-option *ngFor="let language of ls.get_allLanguages" [value]="language.value">
-                {{language.viewValue}}
-            </mat-option>
-        </mat-select>
-    </mat-form-field>
+<dx-select-box class="citizen-header-lang-select" displayExpr="viewValue" valueExpr="value"
+    [items]="ls.get_allLanguages" [value]="(selectedLangauge | async)"
+    (onSelectionChanged)="ls.setLanguage($event.selectedItem.value)">
+</dx-select-box>

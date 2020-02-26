@@ -5,3 +5,9 @@
     align-items: stretch;
     flex: 1 1 auto;
 }
+
+@media (max-width: 600px){
+    cza-citizen-footer{
+        display: none;
+    }
+}

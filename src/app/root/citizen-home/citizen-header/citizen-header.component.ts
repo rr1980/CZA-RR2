@@ -1,4 +1,4 @@
-import { Component, OnInit } from '@angular/core';
+import { Component } from '@angular/core';
 import { Observable } from 'rxjs';
 import { LanguageService } from '../../../service/language/language.service';
 
@@ -7,14 +7,11 @@ import { LanguageService } from '../../../service/language/language.service';
   templateUrl: './citizen-header.component.html',
   styleUrls: ['./citizen-header.component.scss']
 })
-export class CitizenHeaderComponent implements OnInit {
+export class CitizenHeaderComponent {
 
   selectedLangauge: Observable<string>;
 
   constructor(public ls: LanguageService) {
     this.selectedLangauge = ls.get_selectedLangaugeObservable
-  }
-
-  ngOnInit() {
   }
 }
