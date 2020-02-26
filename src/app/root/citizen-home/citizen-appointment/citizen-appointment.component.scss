@@ -26,16 +26,24 @@
 //   align-items: center;
 // }
 
+@media (max-width: 1000px){
+  .appointment-dx-tree-list {
+    width: 100%!important;
+  }
+}
+
 .appointment-container {
   display: flex;
   flex-direction: column;
   flex: 1 0 50%;
-  // width: 50%;
   min-height: 160px;
+  justify-content: center;
+  align-items: center;
 }
 
 .appointment-dx-tree-list{
-  flex: 1 0 50%;
+  width: 60%;
+  flex: 1;
   padding: 20px;
   height: 1vh;
 }
