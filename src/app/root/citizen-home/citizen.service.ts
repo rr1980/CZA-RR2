@@ -41,14 +41,13 @@ export class CitizenService {
       let ad = {
         isCheckedIn: false,
         userId: response.user.id,
-        // group: response.user.group,
         email: 'r.riesner@computerzentrum.de'
       } as IAppointmentData;
 
       
       this._appointmentData.next(ad);
 
-      this.nav(['appointment']);
+      this.nav(['citizen/appointment']);
     });
   }
 
@@ -70,13 +69,13 @@ export class CitizenService {
     ad.information = appointment.information;
 
     this._appointmentData.next(ad);
-    this.nav(['privacypolicy']);
+    this.nav(['citizen/privacypolicy']);
   }
 
   finish() {
     this.apiService.citizen_finish(this.get_appointmentDataValue).subscribe(response => {
       this._appointmentData.next(response.appointment);
-      this.nav(['confirmation']);
+      this.nav(['citizen/confirmation']);
     });
   }
 
@@ -89,7 +88,7 @@ export class CitizenService {
     const aDataVal = this.get_appointmentDataValue;
 
     if (path === 'passcode') {
-      return 'passcode';
+      return 'citizen/passcode';
     }
     else if (path === 'appointment') {
       return this.validate_appointment();
@@ -107,25 +106,25 @@ export class CitizenService {
       return this.validate_confirmation();
     }
 
-    return 'passcode';
+    return 'citizen/passcode';
   }
 
   validate_appointment() {
     if (!this.get_appointmentDataValue.isCheckedIn && this.get_appointmentDataValue.userId) {
-      return 'appointment';
+      return 'citizen/appointment';
     }
     else {
-      return 'passcode';
+      return 'citizen/passcode';
     }
   }
 
   validate_privacypolicy() {
     if (!this.get_appointmentDataValue.isCheckedIn && this.get_appointmentDataValue.appointmentId
       && this.get_appointmentDataValue.userId) {
-      return 'privacypolicy';
+      return 'citizen/privacypolicy';
     }
     else {
-      return 'appointment';
+      return 'citizen/appointment';
     }
   }
 
@@ -133,10 +132,10 @@ export class CitizenService {
     if (!this.get_appointmentDataValue.isCheckedIn && this.get_appointmentDataValue.privacyAccept === true
       && this.get_appointmentDataValue.appointmentId
       && this.get_appointmentDataValue.userId) {
-      return 'personaldetails';
+      return 'citizen/personaldetails';
     }
     else {
-      return 'privacypolicy';
+      return 'citizen/privacypolicy';
     }
   }
 
@@ -145,10 +144,10 @@ export class CitizenService {
       && this.get_appointmentDataValue.privacyAccept === true
       && this.get_appointmentDataValue.appointmentId
       && this.get_appointmentDataValue.userId) {
-      return 'completebooking';
+      return 'citizen/completebooking';
     }
     else {
-      return 'personaldetails';
+      return 'citizen/personaldetails';
     }
   }
 
@@ -157,10 +156,10 @@ export class CitizenService {
       && this.get_appointmentDataValue.privacyAccept === true
       && this.get_appointmentDataValue.appointmentId
       && this.get_appointmentDataValue.userId) {
-      return 'confirmation';
+      return 'citizen/confirmation';
     }
     else {
-      return 'completebooking';
+      return 'citizen/completebooking';
     }
   }
 }

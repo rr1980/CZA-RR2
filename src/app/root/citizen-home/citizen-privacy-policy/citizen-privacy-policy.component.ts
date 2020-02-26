@@ -30,12 +30,12 @@ export class CitizenPrivacyPolicyComponent {
   onNext() {
     var validationResult = this.privacyForm.instance.validate();
     if (validationResult.isValid) {
-      this.cs.nav(['personaldetails']);
+      this.cs.nav(['citizen/personaldetails']);
     }
   }
 
   onBack() {
-    this.router.navigate(['appointment'], { state: { back: true } });
+    this.router.navigate(['citizen/appointment'], { state: { back: true } });
   }
 }
 

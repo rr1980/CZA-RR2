@@ -19,7 +19,7 @@ export class CitizenConfirmationComponent {
   }
 
   onNext() {
-    this.router.navigate(['passcode']);
+    this.router.navigate(['citizen/passcode']);
   }
 
   onPrint() {

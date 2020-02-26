@@ -5,13 +5,13 @@ import { NavbarComponent } from './navbar/navbar.component';
 
 
 const routes: Routes = [
+  { path: '', redirectTo: 'citizen', pathMatch: 'full' },
+  {
+    path: 'citizen', loadChildren: () => import('./root/citizen-home/citizen-home.module').then(m => m.CitizenHomeModule)
+  },
   {
     path: 'intern', loadChildren: () => import('./root/intern-home/intern-home.module').then(m => m.InternHomeModule)
   },
-  {
-    path: '', loadChildren: () => import('./root/citizen-home/citizen-home.module').then(m => m.CitizenHomeModule)
-  },
-
   {
     path: '**', redirectTo: ''
   }

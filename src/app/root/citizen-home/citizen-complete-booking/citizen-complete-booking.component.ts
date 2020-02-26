@@ -23,6 +23,6 @@ export class CitizenCompleteBookingComponent {
   }
 
   onBack() {
-    this.router.navigate(['personaldetails'], { state: { back: true } });
+    this.router.navigate(['citizen/personaldetails'], { state: { back: true } });
   }
 }

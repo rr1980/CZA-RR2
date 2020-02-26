@@ -27,11 +27,11 @@ export class CitizenPersonalDetailsComponent {
   onNext() {
     var validationResult = this.personalDetailsForm.instance.validate();
     if (validationResult.isValid) {
-      this.cs.nav(['completebooking']);
+      this.cs.nav(['citizen/completebooking']);
     }
   }
 
   onBack() {
-    this.router.navigate(['privacypolicy'], { state: { back: true } });
+    this.router.navigate(['citizen/rivacypolicy'], { state: { back: true } });
   }
 }
