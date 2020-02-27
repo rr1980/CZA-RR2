@@ -26,6 +26,12 @@ export class FakeBackendInterceptor implements HttpInterceptor {
    intercept(request: HttpRequest<any>, next: HttpHandler): Observable<HttpEvent<any>> {
       const { url, method, headers, body } = request;
 
+      console.debug(url, method, headers, body );
+
+      if(url.toLowerCase().startsWith('http://172.20.1.156:48080')){
+         return next.handle(request);
+      }
+
       const bodyDe = getData(body);
       const self = this;
 
@@ -38,7 +44,10 @@ export class FakeBackendInterceptor implements HttpInterceptor {
 
       function handleRoute(): Observable<HttpEvent<any>> {
          // console.log('intercept', bodyDe);
-
+         console.debug(bodyDe);
+         if(!bodyDe.task){
+            return next.handle(request);
+         }
 
          switch (true) {
             case bodyDe.task.endsWith('SYS/login'):

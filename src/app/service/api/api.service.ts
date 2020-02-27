@@ -12,6 +12,7 @@ import { Appointment, IAppointmentData, AppointmentFinishResponse } from 'src/ap
 export class ApiService {
 
 
+
     private static readonly URL_SERVICE_GET = 'isga-webstart/service/webclient/get';
     private static readonly URL_SERVICE_POST = 'isga-webstart/service/webclient/post';
 
@@ -35,12 +36,12 @@ export class ApiService {
     }
 
     citizen_passcode(passcodeFormData: Passcode): Observable<PasscodeResponse> {
-        const data     = JSON.stringify(passcodeFormData);
-        const request  = new ServerRequest('SYS/citizen', data);
+        const data = JSON.stringify(passcodeFormData);
+        const request = new ServerRequest('SYS/citizen', data);
         const serverResponse = this.perform(request)
             .pipe(
                 map(r => {
-                     return JSON.parse(r) as PasscodeResponse;
+                    return JSON.parse(r) as PasscodeResponse;
                 }),
                 catchError(this.errorHandler));
 
@@ -48,30 +49,30 @@ export class ApiService {
     }
 
     citizen_availableAppointment(userId: number): Observable<Appointment[]> {
-        const data     = JSON.stringify({userId: userId});
-        const request  = new ServerRequest('SYS/citizen', data);
+        const data = JSON.stringify({ userId: userId });
+        const request = new ServerRequest('SYS/citizen', data);
         const serverResponse = this.perform(request)
             .pipe(
                 map(r => {
-                     return JSON.parse(r) as Appointment[];
+                    return JSON.parse(r) as Appointment[];
                 }),
                 catchError(this.errorHandler));
 
         return serverResponse as Observable<Appointment[]>;
-      }
+    }
 
-      citizen_finish(IapointmentData: IAppointmentData): Observable<AppointmentFinishResponse> {
-        const data     = JSON.stringify(IapointmentData);
-        const request  = new ServerRequest('SYS/citizen', data);
+    citizen_finish(IapointmentData: IAppointmentData): Observable<AppointmentFinishResponse> {
+        const data = JSON.stringify(IapointmentData);
+        const request = new ServerRequest('SYS/citizen', data);
         const serverResponse = this.perform(request)
             .pipe(
                 map(r => {
-                     return JSON.parse(r) as AppointmentFinishResponse[];
+                    return JSON.parse(r) as AppointmentFinishResponse[];
                 }),
                 catchError(this.errorHandler));
 
         return serverResponse as Observable<AppointmentFinishResponse>;
-      }
+    }
 
     // privates
 
@@ -105,5 +106,31 @@ export class ApiService {
     private errorHandler(error: Error | any): Observable<any> {
         // tslint:disable-next-line: deprecation
         return throwError(error);
+    }
+
+    onTest() {
+        const ojson = JSON.stringify({
+            Test: 'Rene'
+        });
+
+        const body = btoa(ojson);
+
+        const result = this.http.post<string>('http://172.20.1.156:48080/CZAppointment/service/webclient/simpleTest', body,
+            {
+                headers: new HttpHeaders
+                    (
+                        {
+                            'Accept': 'application/json'
+                        }
+                    )
+            }
+            ).pipe(
+                // retry(3),
+                // map(base64 => this.getData(base64.toString())), // BASE64 (UTF-8) -> ... -> String
+                catchError(this.errorHandler));
+
+        result.subscribe((r) => {
+            console.debug("=", r);
+        });
     }
 }

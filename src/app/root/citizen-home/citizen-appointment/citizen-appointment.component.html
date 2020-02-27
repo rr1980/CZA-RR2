@@ -14,7 +14,9 @@
     <dxi-column type="buttons"  [hidingPriority]="5">
       <dxi-button template="myCommand">
         <div *dxTemplate="let data of 'myCommand'">
-          <dx-button icon="check" type="primary" [text]="'Select' | translate" (onClick)="selectAppointment(data.data)">
+          <dx-button [class]="'appointment-auswahl-button-big'" icon="check" type="primary" [text]="'Select' | translate" (onClick)="selectAppointment(data.data)">
+          </dx-button>
+          <dx-button [class]="'appointment-auswahl-button-small'" icon="check" type="primary" [hint]="'Select' | translate" (onClick)="selectAppointment(data.data)">
           </dx-button>
         </div>
       </dxi-button>

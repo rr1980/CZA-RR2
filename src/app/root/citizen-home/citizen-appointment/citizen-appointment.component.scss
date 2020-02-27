@@ -17,20 +17,32 @@
   align-items: center;
   display: flex;
 }
-// .content{
-//   padding: 30px;
-//   flex: 1 1 100%;
-//   display: flex;
-//   flex-direction: column;
-//   justify-content: center;
-//   align-items: center;
-// }
 
 @media (max-width: 1000px){
   .appointment-dx-tree-list {
     width: 100%!important;
   }
+
+  .appointment-auswahl-button-big {
+    display: none!important;
+  }
+
+  .appointment-auswahl-button-small {
+    display: inline-block!important;
+  }
 }
+
+@media (min-width: 1000px){
+
+  .appointment-auswahl-button-big{
+    display: inline-block!important;
+  }
+
+  .appointment-auswahl-button-small{
+    display: none!important;
+  }
+}
+
 
 .appointment-container {
   display: flex;

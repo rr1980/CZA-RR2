@@ -1,5 +1,5 @@
 <div class="citizen-header-greeting">{{ 'greetingMessage' | translate: ['CZA'] }}</div>
-
+<button (click)="onClickTest()">Test</button>
 <dx-select-box class="citizen-header-lang-select" displayExpr="viewValue" valueExpr="value"
     [items]="ls.get_allLanguages" [value]="(selectedLangauge | async)"
     (onSelectionChanged)="ls.setLanguage($event.selectedItem.value)">
