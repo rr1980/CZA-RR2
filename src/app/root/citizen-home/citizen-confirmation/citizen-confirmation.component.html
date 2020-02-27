@@ -1,31 +1,50 @@
-<div class="content" id="print-section">
-  <div class="confirmation-container">
-    <dx-form id="confirmationForm" [class]="'privacy-dx-form'" #confirmationForm [formData]="appointmentDataValue" labelLocation="left"
-      readOnly="true">
-      <dxi-item itemType="group" [caption]="'Appointment' | translate">
-        <dxi-item dataField="occasion" [label]="{text: 'Service' | translate}"></dxi-item>
-        <dxi-item dataField="room" [label]="{text: 'Location' | translate}">
-          {{appointmentDataValue.room}} <br />
-          {{appointmentDataValue.street}} {{appointmentDataValue.no}},
-          {{appointmentDataValue.zipcode}} {{appointmentDataValue.city}}
-        </dxi-item>
-        <dxi-item dataField="date" [label]="{text: 'Date' | translate}">
-          {{appointmentDataValue.date}} / {{appointmentDataValue.time}}
-        </dxi-item>
-        <dxi-item dataField="information" [label]="{text: 'Hint' | translate}"></dxi-item>
+<div class="confirmation-container">
+  <dx-form [hidden]="showSmall" id="confirmationForm" [class]="'privacy-dx-form'" #confirmationForm [formData]="appointmentDataValue"
+    labelLocation="left" readOnly="true">
+    <dxi-item itemType="group" [caption]="'Appointment' | translate">
+      <dxi-item dataField="occasion" [label]="{text: 'Service' | translate}"></dxi-item>
+      <dxi-item dataField="room" [label]="{text: 'Location' | translate}">
+        {{appointmentDataValue.room}} <br />
+        {{appointmentDataValue.street}} {{appointmentDataValue.no}},
+        {{appointmentDataValue.zipcode}} {{appointmentDataValue.city}}
       </dxi-item>
-      <dxi-item itemType="group" [caption]="'Contact data' | translate">
-        <dxi-item dataField="phonenumber" [label]="{text: 'Phonenumber' | translate}"></dxi-item>
-        <dxi-item dataField="email" [label]="{text: 'Email' | translate}"></dxi-item>
+      <dxi-item dataField="date" [label]="{text: 'Date' | translate}">
+        {{appointmentDataValue.date}} / {{appointmentDataValue.time}}
       </dxi-item>
-    </dx-form>
-    <dx-toolbar [class]="'privacy-dx-toolbar'">
-      <dxi-item widget="dxButton" location="center" toolbar="bottom"
-        [options]="{ text: 'Print' | translate, onClick: onPrint }">
+      <dxi-item dataField="information" [label]="{text: 'Hint' | translate}"></dxi-item>
+    </dxi-item>
+    <dxi-item itemType="group" [caption]="'Contact data' | translate">
+      <dxi-item dataField="phonenumber" [label]="{text: 'Phonenumber' | translate}"></dxi-item>
+      <dxi-item dataField="email" [label]="{text: 'Email' | translate}"></dxi-item>
+    </dxi-item>
+  </dx-form>
+
+  <dx-form [hidden]="!showSmall" id="confirmationForm" [class]="'privacy-dx-form'" #confirmationForm [formData]="appointmentDataValue"
+    labelLocation="top" readOnly="true">
+    <dxi-item itemType="group" [caption]="'Appointment' | translate">
+      <dxi-item dataField="occasion" [label]="{text: 'Service' | translate}"></dxi-item>
+      <dxi-item dataField="room" [label]="{text: 'Location' | translate}">
+        {{appointmentDataValue.room}} <br />
+        {{appointmentDataValue.street}} {{appointmentDataValue.no}},
+        {{appointmentDataValue.zipcode}} {{appointmentDataValue.city}}
       </dxi-item>
-      <dxi-item widget="dxButton" location="after" toolbar="bottom"
-        [options]="{ text: 'Finished' | translate, onClick: onNext }">
+      <dxi-item dataField="date" [label]="{text: 'Date' | translate}">
+        {{appointmentDataValue.date}} / {{appointmentDataValue.time}}
       </dxi-item>
-    </dx-toolbar>
-  </div>
+      <dxi-item dataField="information" [label]="{text: 'Hint' | translate}"></dxi-item>
+    </dxi-item>
+    <dxi-item itemType="group" [caption]="'Contact data' | translate">
+      <dxi-item dataField="phonenumber" [label]="{text: 'Phonenumber' | translate}"></dxi-item>
+      <dxi-item dataField="email" [label]="{text: 'Email' | translate}"></dxi-item>
+    </dxi-item>
+  </dx-form>
+
+  <dx-toolbar [class]="'privacy-dx-toolbar'">
+    <dxi-item widget="dxButton" location="center" toolbar="bottom"
+      [options]="{ text: 'Print' | translate, onClick: onPrint }">
+    </dxi-item>
+    <dxi-item widget="dxButton" location="after" toolbar="bottom"
+      [options]="{ text: 'Finished' | translate, onClick: onNext }">
+    </dxi-item>
+  </dx-toolbar>
 </div>

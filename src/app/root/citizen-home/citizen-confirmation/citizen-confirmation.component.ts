@@ -22,10 +22,21 @@ export class CitizenConfirmationComponent {
     this.router.navigate(['citizen/passcode']);
   }
 
+  get showSmall(): boolean {
+    if (this.screenWidth > 800) {
+      return false;
+    }
+    else {
+      return true;
+    }
+  }
+
+  get screenWidth(): number {
+    return window.innerWidth;
+  }
+  
   onPrint() {
-    let printContents, popupWin;
-    printContents = document.getElementById('print-section').innerHTML;
-    popupWin = window.open('', '_blank', 'top=0,left=0,height=100%,width=auto,scrollbars=no,menubar=no,toolbar=no,location=no,status=no,titlebar=no');
+    const popupWin = window.open('', '_blank', 'top=0,left=0,height=100%,width=auto,scrollbars=no,menubar=no,toolbar=no,location=no,status=no,titlebar=no');
     popupWin.document.open();
     popupWin.document.write(`
       <html>

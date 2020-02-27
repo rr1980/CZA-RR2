@@ -25,4 +25,17 @@ export class CitizenCompleteBookingComponent {
   onBack() {
     this.router.navigate(['citizen/personaldetails'], { state: { back: true } });
   }
+
+  get showSmall(): boolean {
+    if (this.screenWidth > 800) {
+      return false;
+    }
+    else {
+      return true;
+    }
+  }
+
+  get screenWidth(): number {
+    return window.innerWidth;
+  }
 }
