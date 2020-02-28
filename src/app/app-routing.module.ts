@@ -1,9 +1,6 @@
 import { NgModule } from '@angular/core';
 import { Routes, RouterModule } from '@angular/router';
 
-import { NavbarComponent } from './navbar/navbar.component';
-
-
 const routes: Routes = [
   { path: '', redirectTo: 'citizen', pathMatch: 'full' },
   {
@@ -23,4 +20,4 @@ const routes: Routes = [
 })
 export class AppRoutingModule { }
 
-export const routedComponents = [NavbarComponent];
+export const routedComponents = [];

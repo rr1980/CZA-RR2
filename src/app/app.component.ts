@@ -2,6 +2,7 @@ import { Component } from '@angular/core';
 import { LanguageService } from './service/language/language.service';
 import DateBox from "devextreme/ui/date_box";
 import TextBox from "devextreme/ui/text_box";
+import config from 'devextreme/core/config';
 
 @Component({
   selector: 'cza-app',
@@ -17,6 +18,11 @@ export class AppComponent {
 
   
   setGlobalConfig() {
+    config({ 
+      editorStylingMode: 'filled', // or 'outlined' | 'underlined'
+      defaultCurrency: 'EUR'
+    });
+
     TextBox.defaultOptions({
         options: {
             showClearButton: true,
