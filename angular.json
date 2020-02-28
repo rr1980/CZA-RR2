@@ -46,14 +46,23 @@
             "tsConfig": "tsconfig.app.json",
             "aot": true,
             "assets": [
-              "src/favicon.ico",
-              "src/assets"
+              {
+                "glob": "**/*",
+                "input": "src/assets",
+                "output": "assets"
+              },
+              "src/favicon.ico"
             ],
+            "extractCss": true,
             "styles": [
-              "./node_modules/@angular/material/prebuilt-themes/pink-bluegrey.css",
-              "node_modules/devextreme/dist/css/dx.common.css",
-              "node_modules/devextreme/dist/css/dx.material.blue.light.css",
-              "src/styles.scss"
+              {
+                "input": "node_modules/devextreme/dist/css/dx.common.css",
+                "bundleName": "dx-common-theme"
+              },
+              {
+                "input": "src/styles.scss",
+                "bundleName": "styles"
+              }
             ],
             "scripts": [
               "node_modules/devextreme/dist/js/dx.all.js"
@@ -73,7 +82,7 @@
               "extractCss": true,
               "namedChunks": false,
               "extractLicenses": true,
-              "vendorChunk": false,
+              "vendorChunk": true,
               "buildOptimizer": true,
               "budgets": [
                 {
